@@ -13,13 +13,6 @@ https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/course/
 * Week2
 * Week3
 * Week4
-* Week5
-* Week6
-* Week6, continued
-* Week7
-* Week8
-* Week9
-* Week10
-* Week11
 
-# Core CS
+OSSU に書いてあるとおり、Week4 以降はスキップする
+https://github.com/ossu/computer-science/blob/dev/FAQ.md#why-do-you-recommend-skipping-the-second-half-of-cs50
