@@ -1,3 +1,7 @@
+// なぜか期待通り動かない
+// flush しているので出せると思うが、縦のほうがうまく出ない
+// そもそも筋の悪いやりかたなので、これはボツにする。
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -92,7 +96,9 @@ int main(int argc, char *argv[])
             for (int k = 0; k < n; k++)
             {
                 // write RGB triple to outfile
+                printf("ftell: %li\n", ftell(outptr));
                 fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
+                printf("ftell2: %li\n", ftell(outptr));
             }
         }
 
@@ -115,14 +121,19 @@ int main(int argc, char *argv[])
             fprintf(stderr, "Fail to allocate memory.\n");
             return 5;
         }
+        fflush(outptr);
         fdatasync(fileno(outptr));
+        printf("ftell3: %li\n", ftell(outptr));
         fseek(outptr, -low_size, SEEK_CUR);
+        printf("ftell4: %li\n", ftell(outptr));
         fread(low, low_size, 1, outptr);
         fseek(outptr, low_size, SEEK_CUR);
 
         for (int j = 0; j < n - 1; j++)
         {
+            printf("ftell5: %li\n", ftell(outptr));
             fwrite(low, low_size, 1, outptr);
+            printf("ftell6: %li\n", ftell(outptr));
         }
         free(low);
     }
