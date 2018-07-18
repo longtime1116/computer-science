@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     char *outfile = argv[3];
 
     // open input file
-    FILE *inptr = fopen(infile, "r");
+    FILE *inptr = fopen(infile, "rb");
     if (inptr == NULL)
     {
         fprintf(stderr, "Could not open %s.\n", infile);
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     }
 
     // open output file
-    FILE *outptr = fopen(outfile, "w");
+    FILE *outptr = fopen(outfile, "wb+");
     if (outptr == NULL)
     {
         fclose(inptr);
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     // scale
     bi.biWidth *= n;
     bi.biHeight *= n;
-    bi.biSizeImage = (bi.biWidth + padding_after) * bi.biHeight;
+    bi.biSizeImage = (bi.biWidth * sizeof(RGBTRIPLE) + padding_after) * abs(bi.biHeight);
     bf.bfSize = 54 + bi.biSizeImage;
 
     // write outfile's BITMAPFILEHEADER
@@ -71,11 +71,6 @@ int main(int argc, char *argv[])
 
     // write outfile's BITMAPINFOHEADER
     fwrite(&bi, sizeof(BITMAPINFOHEADER), 1, outptr);
-
-    printf("bi.biWidth: %i\n", bi.biWidth);
-    printf("bi.biHeight: %i\n", bi.biHeight);
-    printf("padding_before: %i\n", padding_before);
-    printf("padding_after: %i\n", padding_after);
 
     // iterate over infile's scanlines
     for (int i = 0, biHeight = abs(height_orig); i < biHeight; i++)
@@ -115,10 +110,9 @@ int main(int argc, char *argv[])
             fprintf(stderr, "Fail to allocate memory.\n");
             return 5;
         }
-        fdatasync(fileno(outptr));
+        fflush(outptr);
         fseek(outptr, -low_size, SEEK_CUR);
         fread(low, low_size, 1, outptr);
-        fseek(outptr, low_size, SEEK_CUR);
 
         for (int j = 0; j < n - 1; j++)
         {
