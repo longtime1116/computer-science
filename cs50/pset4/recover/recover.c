@@ -12,6 +12,7 @@ int main (int argc, char *argv[])
         return 1;
     }
 
+    FILE *outptr = NULL;
     char *infname = argv[1];
     FILE *inptr = fopen(infname, "rb");
     if (inptr == NULL)
@@ -23,11 +24,10 @@ int main (int argc, char *argv[])
 
     unsigned char buff[512];
     int jpeg_count = 0;
-    FILE *outptr = NULL;
     while (1)
     {
         int read_len = fread(buff, 1, BLOCK_SIZE, inptr);
-        char *outfname;
+        char *outfname = NULL;
 
         // started with JPEG header?
         if (read_len >= 4 &&
