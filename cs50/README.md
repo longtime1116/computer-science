@@ -9,10 +9,17 @@ https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/course/
   * problem(2018-07-08)
 * Week1, continued
   * lecture(2018-07-10)
-  * problem
+  * problem(2018-07-11)
 * Week2
+  * lecture(2018-07-14)
+  * problem(2018-07-14)
 * Week3
+  * lecture(2018-07-16)
+  * problem(2018-07-22)
 * Week4
+  * lecture(2018-07-22)
+  * problem
 
 OSSU に書いてあるとおり、Week4 以降はスキップする
+
 https://github.com/ossu/computer-science/blob/dev/FAQ.md#why-do-you-recommend-skipping-the-second-half-of-cs50
