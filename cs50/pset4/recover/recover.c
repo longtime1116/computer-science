@@ -50,7 +50,6 @@ int main (int argc, char *argv[])
                 goto END;
             }
 
-            // TODO: use sprintf and change name dynamically
             if (sprintf(outfname, "%3i.jpg", jpeg_count) < 0)
             {
                 fprintf(stderr, "Fail to create output file name\n");
