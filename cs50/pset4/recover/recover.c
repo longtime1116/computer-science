@@ -2,7 +2,7 @@
 
 #define BLOCK_SIZE (512)
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     int ret = 0;
 
@@ -50,7 +50,7 @@ int main (int argc, char *argv[])
                 goto END;
             }
 
-            if (sprintf(outfname, "%3i.jpg", jpeg_count) < 0)
+            if (sprintf(outfname, "%03i.jpg", jpeg_count) < 0)
             {
                 fprintf(stderr, "Fail to create output file name\n");
                 ret = 4;
