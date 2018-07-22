@@ -2,7 +2,7 @@ OSSU の [computer science](https://github.com/ossu/computer-science)の 学習�
 
 # Introduction to Computer Science
 
-## Introduction to Computer Science - CS50
+## Introduction to Computer Science - CS50(~week4)
 https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/course/
 
 ## Introduction to Computer Science and Programming in Python
