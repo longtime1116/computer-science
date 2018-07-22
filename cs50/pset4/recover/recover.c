@@ -24,10 +24,10 @@ int main (int argc, char *argv[])
 
     unsigned char buff[512];
     int jpeg_count = 0;
+    char outfname[8];
     while (1)
     {
-        int read_len = fread(buff, 1, BLOCK_SIZE, inptr);
-        char *outfname = NULL;
+        size_t read_len = fread(buff, 1, BLOCK_SIZE, inptr);
 
         // started with JPEG header?
         if (read_len >= 4 &&
@@ -49,8 +49,14 @@ int main (int argc, char *argv[])
                 ret = 3;
                 goto END;
             }
+
             // TODO: use sprintf and change name dynamically
-            outfname = "hoge.jpg";
+            if (sprintf(outfname, "%3i.jpg", jpeg_count) < 0)
+            {
+                fprintf(stderr, "Fail to create output file name\n");
+                ret = 4;
+                goto END;
+            }
 
             // open a file for next JPEG
             if ((outptr = fopen(outfname, "wb")) == NULL)
@@ -59,6 +65,7 @@ int main (int argc, char *argv[])
                 ret = 2;
                 goto END;
             }
+            jpeg_count++;
         }
 
         // continue until find the first JPEG header
