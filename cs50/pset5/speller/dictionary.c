@@ -1,20 +1,38 @@
 // Implements a dictionary's functionality
 
 #include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "dictionary.h"
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    // TODO
+    (void)word;
     return false;
 }
 
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    // TODO
+    FILE *file = fopen(dictionary, "r");
+    if (file == NULL)
+    {
+        fprintf(stderr, "Could not open %s.\n", dictionary);
+        return false;
+    }
+
+    char word[LENGTH + 1];
+
+    while(fgets(word, LENGTH + 1, file) != NULL)
+    {
+        word[strlen(word) - 1] = '\0';
+        printf("word: %s\n", word);
+    }
+    fclose(file);
+
+
     return false;
 }
 
