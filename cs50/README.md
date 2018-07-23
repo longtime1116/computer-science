@@ -18,7 +18,7 @@ https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/course/
   * problem(2018-07-22)
 * Week4
   * lecture(2018-07-22)
-  * problem
+  * problem(2018-07-24)
 
 OSSU に書いてあるとおり、Week4 以降はスキップする
 
