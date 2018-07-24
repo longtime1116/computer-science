@@ -23,7 +23,5 @@ bool check(const char *word);
 bool load(const char *dictionary);
 unsigned int size(void);
 bool unload(void);
-void register_word(node *hasht[], char *word);
-bool is_word_included(node **hasht, const char *word);
 
 #endif // DICTIONARY_H

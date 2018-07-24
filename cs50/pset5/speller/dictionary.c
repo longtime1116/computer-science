@@ -11,6 +11,8 @@
 node head = {false, {0}};
 int word_count = 0;
 
+static bool is_word_included(node **hasht, const char *word);
+static void register_word(node **hasht, char *word);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
@@ -29,7 +31,7 @@ bool check(const char *word)
     return is_word_included(head.hasht, lower_word);
 }
 
-bool is_word_included(node **hasht, const char *word)
+static bool is_word_included(node **hasht, const char *word)
 {
     if (hasht[INDEX_OF(word)] == NULL)
     {
@@ -71,19 +73,7 @@ bool load(const char *dictionary)
     return true;
 }
 
-// Returns number of words in dictionary if loaded else 0 if not yet loaded
-unsigned int size(void)
-{
-    return word_count;
-}
-
-// Unloads dictionary from memory, returning true if successful else false
-bool unload(void)
-{
-    return true;
-}
-
-void register_word(node **hasht, char *word)
+static void register_word(node **hasht, char *word)
 {
     node *current;
     if (hasht[INDEX_OF(word)] == NULL)
@@ -106,3 +96,16 @@ void register_word(node **hasht, char *word)
     }
     return;
 }
+
+// Returns number of words in dictionary if loaded else 0 if not yet loaded
+unsigned int size(void)
+{
+    return word_count;
+}
+
+// Unloads dictionary from memory, returning true if successful else false
+bool unload(void)
+{
+    return true;
+}
+
