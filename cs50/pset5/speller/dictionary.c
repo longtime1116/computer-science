@@ -8,12 +8,10 @@
 
 #include "dictionary.h"
 
-node head = {false, {0}};
-int word_count = 0;
 
-static bool is_word_included(node **hasht, const char *word);
-static void register_word(node **hasht, char *word);
-static void free_hasht(node **hasht);
+char *table;
+int word_num;
+int start_word_num[27] = {-1};
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
@@ -29,23 +27,47 @@ bool check(const char *word)
         }
     }
 
-    return is_word_included(head.hasht, lower_word);
-}
-
-static bool is_word_included(node **hasht, const char *word)
-{
-    if (hasht[INDEX_OF(word)] == NULL)
+    if (lower_word[0] < 'a' || lower_word[0] > 'z')
     {
         return false;
     }
-    else
+
+    int from = start_word_num[lower_word[0] - 'a'];
+    int to = start_word_num[lower_word[0] - 'a' + 1];
+
+    if (from < 0)
     {
-        if (strlen(word) == 1)
-        {
-            return  hasht[INDEX_OF(word)]->is_end;
-        }
-        return is_word_included(hasht[INDEX_OF(word)]->hasht, &word[1]);
+        return false;
     }
+
+    while(1)
+    {
+        if (from > to)
+        {
+            break;
+        }
+
+        int index = (from + to) / 2;
+        int result = strcmp(lower_word, &table[(LENGTH + 1) * index]);
+
+        if (result > 0)
+        {
+            from = index + 1;
+            continue;
+        }
+        else if (result < 0)
+        {
+            to = index - 1;
+            continue;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+
+    return false;
 }
 
 // Loads dictionary into memory, returning true if successful else false
@@ -59,7 +81,24 @@ bool load(const char *dictionary)
     }
 
     char word[LENGTH + 1];
+    int count = 0;
 
+    while(fgets(word, LENGTH + 1, file) != NULL)
+    {
+        if (strlen(word) == 1)
+        {
+            continue;
+        }
+        count++;
+    }
+
+    table = malloc(sizeof(char) * count * (LENGTH + 1));
+    word_num = count;
+
+    rewind(file);
+    int i = 0;
+    int alph_count = 1;
+    bool x_done[27] = {false};
     while(fgets(word, LENGTH + 1, file) != NULL)
     {
         if (strlen(word) == 1)
@@ -68,58 +107,34 @@ bool load(const char *dictionary)
         }
 
         word[strlen(word) - 1] = '\0';
-        register_word(head.hasht, word);
+
+        char *str = &table[(LENGTH + 1) * i];
+        strcpy(str, word);
+
+        if (!x_done[alph_count] && str[0] == 'a' + alph_count)
+        {
+            start_word_num[alph_count] = i;
+            x_done[alph_count] = true;
+            alph_count++;
+        }
+        i++;
     }
+    start_word_num[0] = 0;
+    start_word_num[26] = word_num - 1;
     fclose(file);
 
     return true;
 }
 
-static void register_word(node **hasht, char *word)
-{
-    node *current;
-    if (hasht[INDEX_OF(word)] == NULL)
-    {
-        current = hasht[INDEX_OF(word)] = calloc(sizeof(node), 1);
-    }
-    else
-    {
-        current = hasht[INDEX_OF(word)];
-    }
-
-    if (strlen(word) == 1)
-    {
-        current->is_end = true;
-        word_count++;
-    }
-    else
-    {
-        register_word(current->hasht, &word[1]);
-    }
-    return;
-}
-
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return word_count;
+    return word_num;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    free_hasht(head.hasht);
+    free(table);
     return true;
-}
-
-static void free_hasht(node **hasht)
-{
-    for (int i = 0; i < APOSTOROFY_NUM; i++)
-    {
-        if (hasht[i] != NULL)
-        {
-            free_hasht(hasht[i]->hasht);
-            free(hasht[i]);
-        }
-    }
 }
