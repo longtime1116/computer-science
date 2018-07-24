@@ -59,8 +59,15 @@ bool unload(void)
 
 void register_word(node **hasht, char *word)
 {
-    node *current = malloc(sizeof(node));
-    hasht[INDEX_OF(word)] = current;
+    node *current;
+    if (hasht[INDEX_OF(word)] == NULL)
+    {
+        current = hasht[INDEX_OF(word)] = calloc(sizeof(node), 1);
+    }
+    else
+    {
+        current = hasht[INDEX_OF(word)];
+    }
 
     if (strlen(word) == 1)
     {
