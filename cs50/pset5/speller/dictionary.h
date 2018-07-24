@@ -15,7 +15,7 @@
 typedef struct node
 {
     bool is_end;
-    struct node *hasht[ALPHABET_NUM];
+    struct node *hasht[APOSTOROFY_NUM];
 } node;
 
 // Prototypes

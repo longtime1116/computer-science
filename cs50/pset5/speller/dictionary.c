@@ -13,6 +13,7 @@ int word_count = 0;
 
 static bool is_word_included(node **hasht, const char *word);
 static void register_word(node **hasht, char *word);
+static void free_hasht(node **hasht);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
@@ -69,6 +70,7 @@ bool load(const char *dictionary)
         word[strlen(word) - 1] = '\0';
         register_word(head.hasht, word);
     }
+    fclose(file);
 
     return true;
 }
@@ -106,6 +108,18 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
+    free_hasht(head.hasht);
     return true;
 }
 
+static void free_hasht(node **hasht)
+{
+    for (int i = 0; i < APOSTOROFY_NUM; i++)
+    {
+        if (hasht[i] != NULL)
+        {
+            free_hasht(hasht[i]->hasht);
+            free(hasht[i]);
+        }
+    }
+}
