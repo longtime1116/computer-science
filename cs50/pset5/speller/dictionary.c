@@ -9,7 +9,7 @@
 #include "dictionary.h"
 
 
-char **table;
+char *table;
 int word_num;
 int start_word_num[27] = {-1};
 
@@ -48,7 +48,7 @@ bool check(const char *word)
         }
 
         int index = (from + to) / 2;
-        int result = strcmp(lower_word, table[index]);
+        int result = strcmp(lower_word, &table[(LENGTH + 1) * index]);
 
         if (result > 0)
         {
@@ -92,7 +92,7 @@ bool load(const char *dictionary)
         count++;
     }
 
-    table = malloc(sizeof(char *) * count);
+    table = malloc(sizeof(char) * count * (LENGTH + 1));
     word_num = count;
 
     rewind(file);
@@ -108,9 +108,8 @@ bool load(const char *dictionary)
 
         word[strlen(word) - 1] = '\0';
 
-        char *str = malloc(strlen(word) + 1);
+        char *str = &table[(LENGTH + 1) * i];
         strcpy(str, word);
-        table[i] = str;
 
         if (!x_done[alph_count] && str[0] == 'a' + alph_count)
         {
@@ -136,10 +135,6 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    for (int i = 0; i < word_num; i++)
-    {
-        free(table[i]);
-    }
     free(table);
     return true;
 }
