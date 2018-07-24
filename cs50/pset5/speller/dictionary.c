@@ -73,6 +73,10 @@ bool load(const char *dictionary)
 
     while(fgets(word, LENGTH + 1, file) != NULL)
     {
+        if (strlen(word) == 1)
+        {
+            continue;
+        }
         count++;
     }
 
@@ -83,6 +87,11 @@ bool load(const char *dictionary)
     int i = 0;
     while(fgets(word, LENGTH + 1, file) != NULL)
     {
+        if (strlen(word) == 1)
+        {
+            continue;
+        }
+
         word[strlen(word) - 1] = '\0';
 
         char *str = malloc(strlen(word) + 1);
@@ -108,5 +117,6 @@ bool unload(void)
     {
         free(table[i]);
     }
+    free(table);
     return true;
 }
