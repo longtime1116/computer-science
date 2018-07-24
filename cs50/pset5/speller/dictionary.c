@@ -9,6 +9,7 @@
 #include "dictionary.h"
 
 node head = {false, {0}};
+int word_count = 0;
 
 
 // Returns true if word is in dictionary else false
@@ -73,7 +74,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return 0;
+    return word_count;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
@@ -97,6 +98,7 @@ void register_word(node **hasht, char *word)
     if (strlen(word) == 1)
     {
         current->is_end = true;
+        word_count++;
     }
     else
     {
