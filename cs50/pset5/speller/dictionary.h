@@ -10,7 +10,7 @@
 #define LENGTH 45
 #define ALPHABET_NUM 26
 #define APOSTOROFY_NUM 27
-#define INDEX_OF(W) ( W[0] == '\'' ? APOSTOROFY_NUM : W[0] - 'a')
+#define INDEX_OF(W) ( W[0] == '\'' ? APOSTOROFY_NUM - 1 : W[0] - 'a')
 
 typedef struct node
 {
@@ -24,5 +24,6 @@ bool load(const char *dictionary);
 unsigned int size(void);
 bool unload(void);
 void register_word(node *hasht[], char *word);
+bool is_word_included(node **hasht, const char *word);
 
 #endif // DICTIONARY_H
