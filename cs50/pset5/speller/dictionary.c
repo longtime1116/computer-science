@@ -112,7 +112,7 @@ bool load(const char *dictionary)
         strcpy(str, word);
         table[i] = str;
 
-        if (alph_count <= 25 && !x_done[alph_count] && str[0] == 'a' + alph_count)
+        if (!x_done[alph_count] && str[0] == 'a' + alph_count)
         {
             start_word_num[alph_count] = i;
             x_done[alph_count] = true;
