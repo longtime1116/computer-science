@@ -9,7 +9,7 @@
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
 #define LENGTH 45
 
-#define HASH_SIZE 100000
+#define HASH_SIZE 75000
 
 // Prototypes
 bool check(const char *word);

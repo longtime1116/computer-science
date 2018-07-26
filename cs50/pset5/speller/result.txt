@@ -1,4 +1,11 @@
 Rank  Name            Time    Load    Check   Size    Unload  Memory   Heap   Stack
 317   longtime1116  7.884 s   0.600 s 7.276 s 0.000 s 0.008 s 6.6 MB  6.6 MB  2.0 kB   # v1
 540   longtime1116  11.400 s  2.940 s 5.588 s 0.000 s 2.872 s 82.2 MB 82.2 MB 7.0 kB   # v2
-259   longtime1116  7.324 s   1.560 s 5.376 s 0.000 s 0.388 s 8.0 MB  8.0 MB  2.0 kB   # v3
+259   longtime1116  7.324 s   1.560 s 5.376 s 0.000 s 0.388 s 8.0 MB  8.0 MB  2.0 kB   # v3(10000)
+245   longtime1116  7.248 s   1.560 s 5.172 s 0.000 s 0.516 s 8.0 MB  8.0 MB  1.9 kB   # v3(30000)
+221   longtime1116  7.080 s   1.504 s 5.032 s 0.000 s 0.544 s 8.0 MB  8.0 MB  1.9 kB   # v3(50000)
+208   longtime1116  7.040 s   1.508 s 4.928 s 0.000 s 0.604 s 8.0 MB  8.0 MB  2.0 kB   # v3(75000)
+241   longtime1116  7.228 s   1.572 s 5.296 s 0.000 s 0.360 s 8.0 MB  8.0 MB  2.0 kB   # v3(75000) 2
+277   longtime1116  7.468 s   1.692 s 5.332 s 0.000 s 0.444 s 8.0 MB  8.0 MB  2.0 kB   # v3(80000)
+264   longtime1116  7.388 s   1.632 s 5.368 s 0.000 s 0.388 s 8.0 MB  8.0 MB  2.0 kB   # v3(85000)
+290   longtime1116  7.560 s   1.716 s 5.104 s 0.000 s 0.740 s 8.0 MB  8.0 MB  2.0 kB   # v3(100000)

@@ -9,10 +9,19 @@
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
 #define LENGTH 45
 
+#define HASH_SIZE 75000
+
 // Prototypes
 bool check(const char *word);
 bool load(const char *dictionary);
 unsigned int size(void);
 bool unload(void);
+
+typedef struct node
+{
+    char        word[LENGTH + 1];
+    struct node *next;
+
+} node;
 
 #endif // DICTIONARY_H

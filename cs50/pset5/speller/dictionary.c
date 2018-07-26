@@ -8,10 +8,10 @@
 
 #include "dictionary.h"
 
+node *g_hasht[HASH_SIZE];
+int g_word_num;
 
-char *table;
-int word_num;
-int start_word_num[27] = {-1};
+static int hash_func(char *word);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
@@ -27,46 +27,24 @@ bool check(const char *word)
         }
     }
 
-    if (lower_word[0] < 'a' || lower_word[0] > 'z')
+    node *head = g_hasht[hash_func(lower_word)];
+    node *cur;
+
+    if (head == NULL)
     {
         return false;
     }
-
-    int from = start_word_num[lower_word[0] - 'a'];
-    int to = start_word_num[lower_word[0] - 'a' + 1];
-
-    if (from < 0)
+    for (cur = head; cur->next != NULL; cur = cur->next)
     {
-        return false;
-    }
-
-    while(1)
-    {
-        if (from > to)
-        {
-            break;
-        }
-
-        int index = (from + to) / 2;
-        int result = strcmp(lower_word, &table[(LENGTH + 1) * index]);
-
-        if (result > 0)
-        {
-            from = index + 1;
-            continue;
-        }
-        else if (result < 0)
-        {
-            to = index - 1;
-            continue;
-        }
-        else
+        if (strcmp(cur->word, lower_word) == 0)
         {
             return true;
         }
-
     }
-
+    if (strcmp(cur->word, lower_word) == 0)
+    {
+        return true;
+    }
     return false;
 }
 
@@ -81,24 +59,8 @@ bool load(const char *dictionary)
     }
 
     char word[LENGTH + 1];
-    int count = 0;
+    int hash_value;
 
-    while(fgets(word, LENGTH + 1, file) != NULL)
-    {
-        if (strlen(word) == 1)
-        {
-            continue;
-        }
-        count++;
-    }
-
-    table = malloc(sizeof(char) * count * (LENGTH + 1));
-    word_num = count;
-
-    rewind(file);
-    int i = 0;
-    int alph_count = 1;
-    bool x_done[27] = {false};
     while(fgets(word, LENGTH + 1, file) != NULL)
     {
         if (strlen(word) == 1)
@@ -108,33 +70,90 @@ bool load(const char *dictionary)
 
         word[strlen(word) - 1] = '\0';
 
-        char *str = &table[(LENGTH + 1) * i];
-        strcpy(str, word);
 
-        if (!x_done[alph_count] && str[0] == 'a' + alph_count)
+        node **target = NULL;
+        hash_value = hash_func(word);
+
+        if (g_hasht[hash_value] == NULL)
         {
-            start_word_num[alph_count] = i;
-            x_done[alph_count] = true;
-            alph_count++;
+            target = &g_hasht[hash_value];
         }
-        i++;
-    }
-    start_word_num[0] = 0;
-    start_word_num[26] = word_num - 1;
-    fclose(file);
+        else
+        {
+            node *head = g_hasht[hash_value];
+            node *current;
+            bool need_insert = true;
 
+            for (current = head; current->next != NULL; current = current->next)
+            {
+                if (strcmp(word, current->word) == 0)
+                {
+                    need_insert = false;
+                    break;
+                }
+            }
+
+            if (!need_insert)
+            {
+                continue;
+            }
+
+            target = &current->next;;
+        }
+
+        *target = malloc(sizeof(node));
+        strcpy((*target)->word, word);
+        (*target)->next = NULL;
+        g_word_num++;
+    }
+
+    fclose(file);
     return true;
+}
+static int hash_func(char *word)
+{
+    unsigned long long int val = 0;
+    int len = strlen(word);
+
+    for (int i = 0; i < len; i++)
+    {
+        val += word[i];
+        val += (val << 10);
+        val ^= (val >> 6);
+
+    }
+    val += val << 3;
+    val ^= val >> 11;
+    val += val << 15;
+
+    return (int)(val % HASH_SIZE);
 }
 
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return word_num;
+    return g_word_num;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    free(table);
+    for (int i = 0; i < HASH_SIZE; i++)
+    {
+        node *head = g_hasht[i];
+        node *cur, *next;
+
+        if (head == NULL)
+        {
+            continue;
+        }
+
+        for (cur = head; cur->next != NULL; cur = next)
+        {
+            next = cur->next;
+            free(cur);
+        }
+        free(cur);
+    }
     return true;
 }
