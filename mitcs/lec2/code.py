@@ -1,6 +1,7 @@
 ###################
 ## EXAMPLE: strings 
 ###################
+print("========= EXAMPLE: string =========")
 hi = "hello there"
 name = "ana"
 greet = hi + name  
@@ -13,37 +14,40 @@ print(silly)
 ####################
 ## EXAMPLE: output 
 ####################
-#x = 1
-#print(x)
-#x_str = str(x)
-#print("my fav number is", x, ".", "x=", x)
-#print("my fav number is", x_str + "." + "x=" + x_str)
-#print("my fav number is" + x_str + "." + "x=" + x_str)
+print("========= EXAMPLE: output =========")
+x = 1
+print(x)
+x_str = str(x)
+print("my fav number is", x, ".", "x=", x)
+print("my fav number is", x_str + "." + "x=" + x_str)
+print("my fav number is" + x_str + "." + "x=" + x_str)
 
 
 ####################
 ## EXAMPLE: input
 ####################
-#text = input("Type anything... ")
-#print(5*text)
-#num = int(input("Type a number... "))
-#print(5*num)
+print("========= EXAMPLE: input =========")
+text = input("Type anything... ")
+print(5*text)
+num = int(input("Type a number... "))
+print(5*num)
 
 
 ####################
 ## EXAMPLE: conditionals/branching 
 ####################
-#x = float(input("Enter a number for x: "))
-#y = float(input("Enter a number for y: "))
-#if x == y:
-#    print("x and y are equal")
-#    if y != 0:
-#        print("therefore, x / y is", x/y)
-#elif x < y:
-#    print("x is smaller")
-#elif x > y:
-#    print("y is smaller")
-#print("thanks!")
+print("========= EXAMPLE: conditionals/branching =========")
+x = float(input("Enter a number for x: "))
+y = float(input("Enter a number for y: "))
+if x == y:
+    print("x and y are equal")
+    if y != 0:
+        print("therefore, x / y is", x/y)
+elif x < y:
+    print("x is smaller")
+elif x > y:
+    print("y is smaller")
+print("thanks!")
 
 
 
@@ -63,17 +67,17 @@ print(silly)
 ## twice and flip the table any more times than that. 
 ## Hint: use a counter
 ####################
-#n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
-#while n == "right" or n == "Right":
-#    n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
-#print("\nYou got out of the Lost Forest!\n\o/")
+n = input("You are in the Lost Forest\n****************\n****************\n :)\n****************\n****************\nGo left or right? ")
+while n == "right" or n == "Right":
+    n = input("You are in the Lost Forest\n****************\n******       ***\n  (╯°□°）╯︵ ┻━┻\n****************\n****************\nGo left or right? ")
+print("\nYou got out of the Lost Forest!\n\o/")
 
 
 
-#n = 0
-#while n < 5:
-#    print(n)
-#    n = n+1
+n = 0
+while n < 5:
+    print(n)
+    n = n+1
 
 
 ####################
