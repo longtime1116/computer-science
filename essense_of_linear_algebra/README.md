@@ -14,7 +14,8 @@
 - [x] chapter 10
 - [x] chapter 11
 - [x] chapter 12
-- [ ] chapter 13
+- [x] chapter 13 eigenvectors and eigenvalues
+  - 固有値を列ベクトルとして持つ正則行列を右から掛けて、その inverse を左から掛けると、なぜ diagonal matrix ができるのかを直感的に理解できた
 - [ ] chapter 14
 
 # メモ
