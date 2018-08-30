@@ -1,0 +1,16 @@
+- [x] week0
+- [ ] week1
+- [ ] week2
+- [ ] week3
+- [ ] week4
+- [ ] exam1
+- [ ] week5
+- [ ] week6
+- [ ] week7
+- [ ] week8
+- [ ] exam2
+- [ ] week9
+- [ ] week10
+- [ ] week10
+- [ ] week12
+- [ ] final
