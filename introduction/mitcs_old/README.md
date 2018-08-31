@@ -1,3 +1,12 @@
+## Introduction to Computer Science and Programming in Python(2018-07-25)
+edx では受講できなかったので↓でやる(予定だったが、8/31よりedxで受講できることがわかったのでそちらでやる。こちらはやらない。)
+
+[講義動画](https://www.youtube.com/playlist?list=PLUl4u3cNGP63WbdFxL8giv4yhgdMGaZNA)
+
+[公式ページ](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/#)
+
+
+
 session1(7/26)
 session2(7/29)
 session3
