@@ -3,7 +3,7 @@
   - [x] 1.1
   - [x] 1.2
   - [x] 1.3
-  - [ ] 1.4
+  - [x] 1.4
     - axpy の memops(memory operations) は、α 1 つ分と、x, y, αx + y の 3n で、3n + 1
     - axpy の flops(floating point operations)は、α と x を掛ける演算と、それに y を掛ける演算で、2n
   - [ ] 1.5
