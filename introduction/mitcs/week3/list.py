@@ -49,3 +49,33 @@ print("L: ", L)
 print("L.pop(0)")
 L.pop(0)
 print("L: ", L)
+
+print("==================")
+
+L1 = [1, 2, 3, 4]
+print("L1: ", L1)
+L2 = [1, 2, 5, 6]
+print("L2: ", L2)
+
+def remove_dups(L1, L2):
+    for e in L1:
+        if e in L2:
+            L1.remove(e)
+# mutable である配列を操作してしまっているので、結果が変になる
+print("remove_dups(L1, L2)")
+remove_dups(L1, L2)
+print("L1:", L1) #=> [2, 3, 4]
+
+print("〜reset〜")
+L1 = [1, 2, 3, 4]
+print("L1: ", L1)
+L2 = [1, 2, 5, 6]
+print("L2: ", L2)
+
+def remove_dups_new(L1, L2):
+    for e in L1[:]:
+        if e in L2:
+            L1.remove(e)
+print("remove_dups_new(L1, L2)")
+remove_dups_new(L1, L2)
+print("L1:", L1) #=> [2, 3, 4]
