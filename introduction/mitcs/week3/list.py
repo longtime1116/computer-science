@@ -37,3 +37,15 @@ print("L: ", L)
 print("L.reverse()")
 L.reverse()
 print("L: ", L)
+
+print("L.append(10)")
+L.append(10)
+print("L: ", L)
+
+print("L.pop()")
+L.pop()
+print("L: ", L)
+
+print("L.pop(0)")
+L.pop(0)
+print("L: ", L)
