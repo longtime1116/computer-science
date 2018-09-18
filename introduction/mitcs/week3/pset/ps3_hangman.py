@@ -8,6 +8,7 @@
 # (so be sure to read the docstrings!)
 
 import random
+import string
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -79,8 +80,14 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE...
-    
+    available_letters = list(string.ascii_lowercase)
+    for c in lettersGuessed:
+        if c in available_letters:
+            available_letters.remove(c)
+    return "".join(available_letters)
+
+
+
 
 def hangman(secretWord):
     '''
