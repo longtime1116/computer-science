@@ -64,7 +64,12 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE...
+    length = len(secretWord)
+    masked_word = list('_' * length)
+    for i in range(length):
+        if secretWord[i] in lettersGuessed:
+            masked_word[i] = secretWord[i]
+    return ''.join(masked_word)
 
 
 
