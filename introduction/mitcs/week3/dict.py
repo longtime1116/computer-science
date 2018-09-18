@@ -25,3 +25,12 @@ def how_many(aDict):
     return count
 
 print(how_many({'u': [10, 15, 5, 2, 6], 'B': [15]}))
+
+def biggest(aDict):
+    max_val = max(aDict.values())
+    for key in aDict.keys():
+        if (aDict[key] == max_val):
+            return key
+    return "None"
+
+print(biggest(animals))
