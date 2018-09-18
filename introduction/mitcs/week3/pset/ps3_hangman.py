@@ -88,7 +88,6 @@ def getAvailableLetters(lettersGuessed):
 
 
 
-
 def hangman(secretWord):
     '''
     secretWord: string, the secret word to guess.
@@ -109,9 +108,43 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE...
+    print("Welcome to the game, Hangman!")
 
+    length = len(secretWord)
+    left_count = 8
+    print("I am thinking of a word that is", length, "letters long.")
 
+    letters_guessed = []
+    isGuessed = False
+
+    print("-------------")
+    while (left_count > 0):
+        print("You have", left_count, "guesses left.")
+        print("Available letters:", getAvailableLetters(letters_guessed))
+        while (True):
+            letter = input("Please guess a letter: ")
+            if len(letter) == 1 and letter >= 'A' and letter <= 'z':
+                break
+
+        if letter in letters_guessed:
+            print("Oops! You've already guessed that letter:", getGuessedWord(secretWord, letters_guessed))
+        elif letter in secretWord:
+            letters_guessed.append(letter)
+            print("Good guess:", getGuessedWord(secretWord, letters_guessed))
+        else:
+            letters_guessed.append(letter)
+            print("Oops! That letter is not in my word:", getGuessedWord(secretWord, letters_guessed))
+            left_count -= 1
+        print("-------------")
+        if isWordGuessed(secretWord, letters_guessed):
+            isGuessed = True
+            break
+
+    if isGuessed:
+        print("Congratulations, you won!")
+    else:
+        print("Sorry, you ran out of guesses. The word was else. ")
+    return
 
 
 
@@ -121,5 +154,5 @@ def hangman(secretWord):
 # secretWord while you're testing)
 
 secretWord = chooseWord(wordlist).lower()
-#print(secretWord)
-# hangman(secretWord)
+print(secretWord)
+hangman(secretWord)
