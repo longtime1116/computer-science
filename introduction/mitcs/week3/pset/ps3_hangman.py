@@ -50,7 +50,10 @@ def isWordGuessed(secretWord, lettersGuessed):
     returns: boolean, True if all the letters of secretWord are in lettersGuessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE...
+    for c in secretWord:
+        if not c in lettersGuessed:
+            return False;
+    return True;
 
 
 
