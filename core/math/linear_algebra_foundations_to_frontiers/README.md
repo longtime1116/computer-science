@@ -11,14 +11,14 @@
   - [x] 1.6
   - [x] 1.7
   - [x] 1.8
-- [ ] week2(2018-09-12〜)
+- [x] week2(2018-09-12〜2018-09-20)
   - [x] 2.1
   - [x] 2.2
   - [x] 2.3
     - PMI(the Principle of Mathematical Induction)
-  - [ ] 2.4
-  - [ ] 2.5
-  - [ ] 2.6
+  - [x] 2.4
+  - [x] 2.5
+  - [x] 2.6
 - [ ] week3
 - [ ] week4
 - [ ] exam1
