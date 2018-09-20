@@ -1,15 +1,15 @@
 OSSU の [computer science](https://github.com/ossu/computer-science)の 学習の記録
 
-# Introduction to Computer Science
+# Introduction to Computer Science(21 weeks)
 
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
 [Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!) ([alt](https://cs50.harvard.edu/)) | 12 weeks | 10-20 hours/week | none | 2018-07-06 | 2018-07-27
 [Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10) | 9 weeks | 15 hours/week | high school algebra | 2018-08-31 |
 
-# Core CS
+# Core CS(201 weeks)
 
-## Core programming
+## Core programming(35 weeks)
 
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
@@ -21,7 +21,7 @@ Courses | Duration | Effort | Prerequisites | Start | Finish
 [Programming Languages, Part B](https://www.coursera.org/learn/programming-languages-part-b) | 3 weeks | 8-16 hours/week | Programming Languages, Part A | |
 [Programming Languages, Part C](https://www.coursera.org/learn/programming-languages-part-c) | 3 weeks | 8-16 hours/week | Programming Languages, Part B | |
 
-## Core math
+## Core math(67 weeks)
 
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
@@ -33,7 +33,7 @@ Courses | Duration | Effort | Prerequisites | Start | Finish
 [Mathematics for Computer Science](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2015/index.htm)<sup>**1**</sup> | 13 weeks | 5 hours/week | Calculus 1C | |
 
 
-## Core systems
+## Core systems(35 weeks)
 
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
@@ -43,14 +43,14 @@ Courses | Duration | Effort | Prerequisites | Start | Finish
 [ops-class.org - Hack the Kernel](https://www.ops-class.org/) | 15 weeks | 6 hours/week | algorithms | |
 
 
-## Core theory
+## Core theory(16 weeks)
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
 [Algorithms: Design and Analysis, Part I](https://lagunita.stanford.edu/courses/course-v1:Engineering+Algorithms1+SelfPaced/about) | 8 weeks | 4-8 hours/week | any programming language, Mathematics for Computer Science | |
 [Algorithms: Design and Analysis, Part II](https://lagunita.stanford.edu/courses/course-v1:Engineering+Algorithms2+SelfPaced/about) | 8 weeks | 4-8 hours/week | Part I | |
 
 
-## Core applications
+## Core applications(48 weeks)
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
 [Databases](https://lagunita.stanford.edu/courses/DB/2014/SelfPaced/about)| 12 weeks | 8-12 hours/week | some programming, basic CS | |
