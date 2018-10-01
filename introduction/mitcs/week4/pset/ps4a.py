@@ -147,10 +147,15 @@ def updateHand(hand, word):
     Has no side effects: does not modify hand.
 
     word: string
-    hand: dictionary (string -> int)    
+    hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+
+    newHand = dict(hand)
+    for char in word:
+        newHand[char] = newHand.get(char, 0) - 1
+
+    return { k : v for k, v in newHand.items() if v > 0 }
 
 
 
