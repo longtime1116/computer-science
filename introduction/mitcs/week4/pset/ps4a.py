@@ -2,6 +2,8 @@
 
 import random
 import string
+from operator import add
+from functools import reduce
 
 VOWELS = 'aeiou'
 CONSONANTS = 'bcdfghjklmnpqrstvwxyz'
@@ -192,13 +194,15 @@ def isValidWord(word, hand, wordList):
 #
 
 def calculateHandlen(hand):
-    """ 
+    """
     Returns the length (number of letters) in the current hand.
-    
+
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    if len(hand) == 0:
+        return 0
+    return reduce(add, hand.values())
 
 
 
