@@ -257,8 +257,21 @@ def playHand(hand, wordList, n):
                 # Update the hand 
                 prevHand = currentHand
                 currentHand = updateHand(currentHand, word)
+                # NOTICE:
+                # you have to uncomment below line when you submit this code,
+                # because the environments of the MITx is something wrong about
+                # the implementation of updateHand() method
+                #currentHand = { k : v for k, v in currentHand.items() if v > 0  }
+                if len(currentHand) != 0:
+                    print()
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
+    print()
+    if len(currentHand) > 0:
+        print("Goodbye! ", end="")
+    else:
+        print("Run out of letters. ", end="")
+
     print("Total score: " + str(totalScore) + " points.")
 
 
@@ -282,7 +295,14 @@ def playGame(wordList):
     #playHand({'a':2, 'c':2, 'd':1, 'e':1, 'i': 1,'m': 1}, wordList, 8)
     #playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
     #playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
-    playHand({'a': 1, 'e': 1, 'l': 1, 'p': 2}, wordList, 5)
+    #playHand({'a': 1, 'e': 1, 'l': 1, 'p': 2}, wordList, 5)
+
+    # 1
+    #playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
+    # 2
+    #playHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
+    # 3
+    playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
     #print("playGame not yet implemented.") # <-- Remove this line when you code the function
    
 
