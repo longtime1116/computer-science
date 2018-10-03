@@ -291,20 +291,25 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    #playHand({'a':2, 'c':2, 'd':1, 'e':1, 'i': 1,'m': 1}, wordList, 8)
-    #playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
-    #playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
-    #playHand({'a': 1, 'e': 1, 'l': 1, 'p': 2}, wordList, 5)
+    hand = None
+    while (True):
+        nextAction = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
+        if nextAction == "n":
+            hand = dealHand(HAND_SIZE)
+            playHand(hand, wordList, HAND_SIZE)
+        elif nextAction == "r":
+            if hand is None:
+                print("You have not played a hand yet. Please play a new hand first!")
+                continue
+            else:
+                playHand(hand, wordList, HAND_SIZE)
+        elif nextAction == "e":
+            break
+        else:
+            print("Invalid command.")
+        print()
 
-    # 1
-    #playHand({'h':1, 'i':1, 'c':1, 'z':1, 'm':2, 'a':1}, wordList, 7)
-    # 2
-    #playHand({'w':1, 's':1, 't':2, 'a':1, 'o':1, 'f':1}, wordList, 7)
-    # 3
-    playHand({'n':1, 'e':1, 't':1, 'a':1, 'r':1, 'i':2}, wordList, 7)
-    #print("playGame not yet implemented.") # <-- Remove this line when you code the function
-   
+
 
 
 #
