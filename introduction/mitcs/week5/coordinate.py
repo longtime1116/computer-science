@@ -15,6 +15,12 @@ class Coordinate(object):
     def __str__(self):
         return '<' + str(self.getX()) + ',' + str(self.getY()) + '>'
 
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __repr__(self):
+        return "Coordinate(" + str(self.x) + "," + str(self.y) + ")"
+
     def distance(self, other):
         x_diff_sq = (self.x - other.x) ** 2
         y_diff_sq = (self.y - other.y) ** 2
@@ -27,6 +33,10 @@ origin = Coordinate(0, 0)
 print(c.distance(origin))
 print(Coordinate.distance(c, origin))
 
+print(c)
+
+print(c == origin)
+print(repr(c))
 
 # from coordinate import Coordinate
 
