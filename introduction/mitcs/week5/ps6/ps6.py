@@ -214,7 +214,7 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         '''
-        pass #delete this line and replace with your code here
+        Message.__init__(self, text)
 
     def decrypt_message(self):
         '''
@@ -232,7 +232,17 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         '''
-        pass #delete this line and replace with your code here
+        best = (0, 0)
+        for shift in range(0, 26):
+            count = 0
+            for word in self.apply_shift(shift).split(" "):
+                if is_word(self.valid_words, word):
+                    count += 1
+            if best[1] < count:
+                best = (shift, count)
+
+        return (best[0], self.apply_shift(best[0]))
+
 
 #Example test case (PlaintextMessage)
 plaintext = PlaintextMessage('hello', 2)
@@ -244,6 +254,10 @@ ciphertext = CiphertextMessage('jgnnq')
 print('Expected Output:', (24, 'hello'))
 print('Actual Output:', ciphertext.decrypt_message())
 
-test = Message("hello")
-print(test.build_shift_dict(2))
-print(test.apply_shift(3))
+ciphertext = CiphertextMessage('Wxwbnwbn fxamb: cry orwn kjujwln ansxrln byrw rc ajixa lnwc lqjut jccajlcrxw xlljbrxw qnbrcjcn jwhfqnan bdppnbcrxw yanenwcrxw')
+print('Expected Output:', ("?", 'Nonsense words: tip fine balance rejoice spin it razor cent chalk attraction occasion hesitate anywhere suggestion prevention'))
+print('Actual Output:', ciphertext.decrypt_message())
+
+#test = Message("hello")
+#print(test.build_shift_dict(2))
+#print(test.apply_shift(3))
