@@ -243,6 +243,9 @@ class CiphertextMessage(Message):
 
         return (best[0], self.apply_shift(best[0]))
 
+def decrypt_story():
+    ciphertext = CiphertextMessage(get_story_string())
+    return ciphertext.decrypt_message()
 
 #Example test case (PlaintextMessage)
 plaintext = PlaintextMessage('hello', 2)
@@ -261,3 +264,5 @@ print('Actual Output:', ciphertext.decrypt_message())
 #test = Message("hello")
 #print(test.build_shift_dict(2))
 #print(test.apply_shift(3))
+
+decrypt_story()
