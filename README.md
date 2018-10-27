@@ -5,7 +5,7 @@ OSSU の [computer science](https://github.com/ossu/computer-science)の 学習�
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
 [Introduction to Computer Science - CS50](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x#!) ([alt](https://cs50.harvard.edu/)) | 12 weeks | 10-20 hours/week | none | 2018-07-06 | 2018-07-27
-[Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10) | 9 weeks | 15 hours/week | high school algebra | 2018-08-31 |
+[Introduction to Computer Science and Programming using Python](https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-10) | 9 weeks | 15 hours/week | high school algebra | 2018-08-31 | 2018-10-27
 
 # Core CS(201 weeks)
 
