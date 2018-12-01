@@ -34,7 +34,12 @@
 - [x] week8(2018-11-11〜2018-11-12)
 - [x] exam2(2018-11-13〜2018-11-14)
 - [x] week9(2018-11-15〜2018-11-17)
+  - vector spaces
 - [x] week10(2018-11-18〜2018-11-22)
+  - orthogonal vectors and spaces, fundamental vectors
 - [x] week11(2018-11-23〜2018-11-26)
+  - orthonomal vectors and spaces
+  - low rank approximation
 - [x] week12(2018-11-27〜2018-12-01)
+  - eigenvalue and eigenvector
 - [ ] final
