@@ -42,4 +42,4 @@
   - low rank approximation
 - [x] week12(2018-11-27〜2018-12-01)
   - eigenvalue and eigenvector
-- [ ] final
+- [x] final(2018-12-03〜2018-12-03)

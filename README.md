@@ -26,7 +26,7 @@ Courses | Duration | Effort | Prerequisites | Start | Finish
 Courses | Duration | Effort | Prerequisites | Start | Finish
 :-- | :--: | :--: | :--: | :--: | :--:
 [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) | - | - | pre-calculus | 2018-08-25 | 2018-08-28
-[Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!) ([alt](http://ulaff.net/)) | 15 weeks | 8 hours/week | Essence of Linear Algebra | 2018-08-30 |
+[Linear Algebra - Foundations to Frontiers](https://www.edx.org/course/linear-algebra-foundations-frontiers-utaustinx-ut-5-04x#!) ([alt](http://ulaff.net/)) | 15 weeks | 8 hours/week | Essence of Linear Algebra | 2018-08-30 | 2018-12-03
 [Calculus 1A: Differentiation](https://www.edx.org/course/calculus-1a-differentiation-mitx-18-01-1x-0) | 13 weeks | 6-10 hours/week | pre-calculus | |
 [Calculus 1B: Integration](https://www.edx.org/course/calculus-1b-integration-mitx-18-01-2x-0) | 13 weeks | 5-10 hours/week | Calculus 1A | |
 [Calculus 1C: Coordinate Systems & Infinite Series](https://www.edx.org/course/calculus-1c-coordinate-systems-infinite-mitx-18-01-3x-0) | 13 weeks | 5-10 hours/week | Calculus 1B | |
