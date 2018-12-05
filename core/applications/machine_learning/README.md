@@ -1,4 +1,11 @@
 - [] week1(2018-12-04〜)
+  - 教師あり学習(Supervised Learning)
+    - 正解を与えて予測させる
+    - 回帰(Regression): 連続的な数値を予想する(株価とか)
+    - 分類(Classification): 離散的な数字に分類する(true/falseなど)
+  - 教師なし学習(Unsupervised Learning)
+    - 正解を与えずにクラスタリングする
+    - 大量のニュース記事を同じ内容のニュースごとに分けるなど
 - [] week2
 - [] week3
 - [] week4
