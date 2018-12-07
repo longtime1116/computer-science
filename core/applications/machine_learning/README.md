@@ -6,6 +6,10 @@
   - 教師なし学習(Unsupervised Learning)
     - 正解を与えずにクラスタリングする
     - 大量のニュース記事を同じ内容のニュースごとに分けるなど
+  - 線形回帰(教師あり学習のモデルのひとつ)
+    - Traning Set から Learning Algorithm により関数 h (hypothesis の h) を生み出す。
+    - この関数は例えば家のサイズを input としてその販売価格を output とするもの
+    - h が直線の時(線形関数に当てはめる時)、それを線形回帰と呼ぶ
 - [] week2
 - [] week3
 - [] week4
