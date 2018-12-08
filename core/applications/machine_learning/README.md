@@ -10,7 +10,7 @@
     - Traning Set から Learning Algorithm により関数 h (hypothesis の h) を生み出す。
     - この関数は例えば家のサイズを input としてその販売価格を output とするもの
     - h が直線の時(線形関数に当てはめる時)、それを線形回帰と呼ぶ
-  - 目的関数
+  - 目的関数(Cost Function)
     - 線形回帰のモデルの正確さは、目的関数(二乗誤差目的関数)で測ることができる。
     - 目的関数の output が最小になるときのものとなる。
 - [] week2
