@@ -40,6 +40,7 @@
     - z = θ'x'
     - g(z) = 1 / (1 + e^(-z))
   - decision boundary(決定境界)
+  - Regularized Linear Regression(正則化回帰) により、overfitting を解消しつつ、m < n のケースにも対応できる。
 - [] week4
 - [] week5
 - [] week6
