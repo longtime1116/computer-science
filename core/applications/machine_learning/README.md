@@ -42,6 +42,9 @@
   - decision boundary(決定境界)
   - Regularized Linear Regression(正則化回帰) により、overfitting を解消しつつ、m < n のケースにも対応できる。
 - [] week4(2018-12-31〜)
+  - Neural Networks
+  - forward propagation によって進んでいき最後に output にいきつく
+  - 例として、XNOR を作る Newral Network
 - [] week5
 - [] week6
 - [] week7
