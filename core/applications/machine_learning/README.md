@@ -45,7 +45,8 @@
   - Neural Networks
   - forward propagation によって進んでいき最後に output にいきつく
   - 例として、XNOR を作る Newral Network
-- [] week5
+- [] week5(2019-01-26〜)
+  - Backpropagation(誤差逆伝播法)
 - [] week6
 - [] week7
 - [] week8
