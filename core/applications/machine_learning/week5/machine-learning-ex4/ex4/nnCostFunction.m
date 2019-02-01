@@ -62,28 +62,6 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-%J = - sum(y .* log(sigmoid(X * Theta1))) - sum(((1 - y) .* log(1 - sigmoid(X * Theta1))));
-%J = J / m + sum(theta(2:length(theta)) .^ 2) * lambda / (2 * m);
-%
-%grad = X' * (sigmoid(X * theta) - y);
-%grad = grad / m;
-%grad = grad + [0; (lambda * theta(2:length(theta))) / m];
-
-%size(X)      %=> 5000, 400
-%X = [ones(m, 1) X];
-%size(X)
-%size(Theta1) %=> 25, 401
-%size(Theta2) %=> 10, 26
-%J = - sum(y .* log(sigmoid(X * Theta1'))) - sum(((1 - y) .* log(1 - sigmoid(X * Theta1'))));
-%size(J) %=> 1, 25
-%size(J)
-%J
-%J = [1 J];
-%J
-%J = - sum(y .* log(sigmoid(J * Theta2'))) - sum(((1 - y) .* log(1 - sigmoid(J * Theta2'))));
-%J
-%J = J / m;
-
 
 Y = zeros(m, num_labels); % [5000,10]
 for i = 1:m
@@ -113,6 +91,10 @@ J = (1 / m) * sum(cost(:));
 %size(z3)    % [5000, 10]
 %size(h)     % [5000, 10]
 %size(cost)  % [5000, 10]
+
+
+% part2
+
 
 
 
