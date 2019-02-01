@@ -95,8 +95,11 @@ J = (1 / m) * sum(cost(:));
 
 % part2
 
+regTheta1 = sum((Theta1(:, 2:end) .* Theta1(:, 2:end))(:));
+regTheta2 = sum((Theta2(:, 2:end) .* Theta2(:, 2:end))(:));
+reg = lambda * (regTheta1 + regTheta2)  / (2 * m);
 
-
+J = J + reg;
 
 
 
