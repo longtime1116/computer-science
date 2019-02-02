@@ -102,6 +102,32 @@ reg = lambda * (regTheta1 + regTheta2)  / (2 * m);
 J = J + reg;
 
 
+% part3
+%size(Theta1)% [25, 401]
+%size(Theta2)% [10, 26]
+Delta2 = 0;
+Delta1 = 0;
+for i = 1:m
+  % 1
+  a1 = [1 X(i, :)];       % [1, 401]
+  z2 = a1 * Theta1';      % [1, 25]
+  a2 = [1 sigmoid(z2)];   % [1, 26]
+  z3 = a2 * Theta2';      % [1, 10]
+  a3 = sigmoid(z3);       % [1, 10]
+
+  % 2
+  delta3 = a3 - Y(i, :);   % [1. 10]
+
+  % 3
+  delta2 = (Theta2' * delta3')(2:end) .* sigmoidGradient(z2)'; % [25, 1]
+
+  % 4
+  Delta2 = Delta2 + delta3' * a2; % [10, 26]
+  Delta1 = Delta1 + delta2 * a1;  % [25, 401]
+end
+
+Theta1_grad = Delta1 / m; % [25, 401]
+Theta2_grad = Delta2 / m; % [10, 26]
 
 % -------------------------------------------------------------
 
