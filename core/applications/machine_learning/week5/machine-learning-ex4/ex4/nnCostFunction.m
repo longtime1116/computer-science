@@ -129,8 +129,8 @@ end
 Theta1_grad = Delta1 / m; % [25, 401]
 Theta2_grad = Delta2 / m; % [10, 26]
 
-Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + (lambda * Theta1(:, 2:end)) / m
-Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + (lambda * Theta2(:, 2:end)) / m
+Theta1_grad(:, 2:end) = Theta1_grad(:, 2:end) + (lambda * Theta1(:, 2:end)) / m;
+Theta2_grad(:, 2:end) = Theta2_grad(:, 2:end) + (lambda * Theta2(:, 2:end)) / m;
 
 % -------------------------------------------------------------
 
