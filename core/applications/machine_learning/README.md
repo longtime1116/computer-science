@@ -47,7 +47,7 @@
   - 例として、XNOR を作る Newral Network
 - [x] week5(2019-01-26〜2019-02-03)
   - Backpropagation(誤差逆伝播法)
-- [] week6
+- [] week6(2019-02-05〜)
 - [] week7
 - [] week8
 - [] week9
