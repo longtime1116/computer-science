@@ -26,13 +26,9 @@ grad = zeros(size(theta));
 
 cost = sum((X * theta - y) .^ 2) / (2 * m);
 reg = lambda * sum(theta(2:end, :) .^ 2) / (2 * m);
-
 J = cost + reg;
 
-
-
-
-
+grad = sum((X * theta - y) .* X) / m + lambda * [0 theta(2:end)'] / m;
 % =========================================================================
 
 grad = grad(:);
