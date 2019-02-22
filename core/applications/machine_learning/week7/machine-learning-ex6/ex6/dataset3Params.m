@@ -25,15 +25,15 @@ sigma = 0.3;
 
 parameters = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
 min_prediction_error = realmax;
-min_c = 0
-min_s = 0
+min_c = 0;
+min_s = 0;
 for c = parameters
   for s = parameters
      model = svmTrain(X, y, c, @(x1, x2) gaussianKernel(x1, x2, s));
      predictions = svmPredict(model, Xval);
      prediction_error = mean(double(predictions ~= yval));
      if min_prediction_error > prediction_error
-       min_prediction_error = prediction_error
+       min_prediction_error = prediction_error;
        min_c = c;
        min_s = s;
      end
