@@ -21,7 +21,20 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+% size(X) % (300, 2)
+% size(centroids) % (3, 2)
+for i=1:size(X)(1)
+  min_length = realmax;
+  for j=1:size(centroids)(1)
+    centroid = centroids(j, :);
+    distance = sum((X(i, :) - centroid) .^2);
+    if min_length > distance
+      closest_centroid_idx = j;
+      min_length = distance;
+    end
+  end
+  idx(i) = closest_centroid_idx;
+end
 
 
 
