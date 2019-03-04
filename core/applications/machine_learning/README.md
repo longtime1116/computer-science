@@ -53,7 +53,8 @@
   - SVM はマージン最大化が嬉しい
 - [] week8(2019-02-27〜)
   - 教師なし学習
-  - K-means
+  - K-means Clustering で分類
+  - PCA で次元圧縮することで計算リソースや速度を改善できる
 - [] week9
 - [] week10
 - [] week11
