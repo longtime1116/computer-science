@@ -50,8 +50,8 @@ reg_theta = lambda * sum(sum(Theta .^2)) / 2;
 
 J = sum((((Theta * X' - Y') .^2) .* R')(:)) / 2 + reg_X + reg_theta;
 
-X_grad = ((Theta * X' - Y') .* R')' * Theta;
-Theta_grad = ((Theta * X' - Y') .* R') * X;
+X_grad = ((Theta * X' - Y') .* R')' * Theta + lambda * X;
+Theta_grad = ((Theta * X' - Y') .* R') * X + lambda * Theta;
 
 
 
