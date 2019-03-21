@@ -55,9 +55,12 @@
   - 教師なし学習
   - K-means Clustering で分類
   - PCA で次元圧縮することで計算リソースや速度を改善できる
-- [] week9(2019-03-05〜)
+- [x] week9(2019-03-05〜2019-03-20)
   - アノマリー検出
     - アノマリーとは、変則的なもの
   - ガウス分布(正規分布) μ(平均)とσ^2(分散)で形が決まる
-- [] week10
+- [x] week10(2019-03-21〜2019-03-21)
+  - stochastic gradient descent, mini batch, batch
+  - online learning
+  - map-reduce
 - [] week11
