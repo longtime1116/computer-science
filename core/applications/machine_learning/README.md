@@ -63,4 +63,4 @@
   - stochastic gradient descent, mini batch, batch
   - online learning
   - map-reduce
-- [] week11
+- [] week11(2019-03-23〜)
