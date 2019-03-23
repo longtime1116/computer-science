@@ -63,4 +63,8 @@
   - stochastic gradient descent, mini batch, batch
   - online learning
   - map-reduce
-- [] week11(2019-03-23〜)
+- [x] week11(2019-03-23〜2019-03-23)
+  - pipeline の考え方を Photo OCR を題材に説明。
+  - sliding window で判定
+  - 既存のデータから、工夫することでデータ数を増やすことができる
+  - ceiling analysys でボトルネックを見つけて、そこにリソースを投下すべき
