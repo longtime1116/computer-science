@@ -1,6 +1,7 @@
-- [ ] week1(2019-04-01〜)
+- [x] week1(2019-04-01〜2019-04-05)
   - project0
     - `$ zip project0.zip ./file.txt`
+  - Nand 回路を所与として、And, Or, Xor, Mux, DMux などを HDL で実装。
 - [ ] week2
 - [ ] week3
 - [ ] week4
