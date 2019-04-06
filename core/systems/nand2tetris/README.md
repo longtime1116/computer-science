@@ -2,7 +2,7 @@
   - project0
     - `$ zip project0.zip ./file.txt`
   - Nand 回路を所与として、And, Or, Xor, Mux, DMux などを HDL で実装。
-- [ ] week2
+- [ ] week2(2019-04-05〜)
 - [ ] week3
 - [ ] week4
 - [ ] week5
