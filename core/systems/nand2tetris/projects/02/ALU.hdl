@@ -42,5 +42,43 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
-   // Put you code here:
+    Not16 (in=x, out=notx);
+    And16 (a=x, b=notx, out=zeros);
+
+    // zx
+    Mux16 (a=x, b=zeros, sel=zx, out=xafterzx);
+    // nx
+    Not16 (in=xafterzx, out=notxafterzx);
+    Mux16 (a=xafterzx, b=notxafterzx, sel=nx, out=xafternx);
+
+    // zy
+    Mux16 (a=y, b=zeros, sel=zy, out=yafterzy);
+    // ny
+    Not16 (in=yafterzy, out=notyafterzy);
+    Mux16 (a=yafterzy, b=notyafterzy, sel=ny, out=yafterny);
+
+    Add16 (a=xafternx, b=yafterny, out=xplusy);
+    And16 (a=xafternx, b=yafterny, out=xandy);
+
+    // f
+    Mux16 (a=xandy, b=xplusy, sel=f, out=xyafterf);
+
+    // no
+    Not16 (in=xyafterf, out=notxyafterf);
+    Mux16 (a=xyafterf, b=notxyafterf, sel=no, out=xyafterno);
+
+
+    // zr
+    And16 (a=xyafterno, b=xyafterno, out[0..7]=former, out[8..15]=latter);
+    Or8Way (in=former, out=or1);
+    Or8Way (in=latter, out=or2);
+    Or (a=or1, b=or2, out=notzr);
+    Not (in=notzr, out=zr);
+
+    // ng
+    And16 (a=xyafterno, b=xyafterno, out[0..14]=head, out[15]=last);
+    And (a=last, b=true, out=ng);
+
+    // out
+    And16 (a=xyafterno, b=xyafterno, out=out);
 }
