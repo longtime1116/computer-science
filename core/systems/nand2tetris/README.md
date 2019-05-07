@@ -12,5 +12,7 @@
   - RAM
   - Program Counter
 - [ ] week4(2019-05-01〜)
+  - R/W の速度の順序
+    - CPU内のRegister -> Cache -> Main memory -> Disk
 - [ ] week5
 - [ ] week6
