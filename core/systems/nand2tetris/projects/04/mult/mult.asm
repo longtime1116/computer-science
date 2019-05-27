@@ -10,13 +10,20 @@
 
 
 // R10: i(0, 1, ..., R2-1)
+
+(PRE)
+  @R2
+  M=0
+  @R10
+  M=0
+
 (LOOP)
   // if (@i == R2) goto END
   @R10
   D=M
   @R1
   D=D-M
-  @END
+  @POST
   D;JEQ
 
   // R2にR0を足す
@@ -31,6 +38,11 @@
 
   @LOOP
   0;JMP
+
+(POST)
+  // 掃除
+  @R10
+  M=0
 
 (END)
   @END
