@@ -27,9 +27,9 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    // そもそも load が 0 ならば何もしない。1 ならば、RAM から読むか、Screen/Keyboard から読むか のどっちか
-    // address[14] が0なら RAM から読む。 address[14] が1なら Screen/Keyboard から読む
-    // address[13] がjなら Screen から読む。 address[13] が0なら Keyboard から読む
+    // load が 0 ならば書き込み。1 ならば、読み込み。
+    // address[14] が0なら RAM から読み書き。 address[14] が1なら Screen/Keyboard から読み書き
+    // address[13] がjなら Screen から読み書き。 address[13] が0なら Keyboard から読み書き
     DMux(in = load, sel = address[14], a = iRAM, b = iIO);
     DMux(in = iIO, sel = address[13], a = iScreen, b = iKeyboard);
 
