@@ -39,5 +39,41 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    // ALU
+    ALU(x = outD, y = outAM, zx=instruction[11], nx=instruction[10],
+        zy=instruction[9], ny=instruction[8], f=instruction[7],
+        no=instruction[6], out = inD, out = inAM,
+        out = outM, zr = outZr, ng = outNg);
+
+    // ALU に必要な D register と、それの in になるやつ
+    DRegister(in = inD, load = loadD, out = outD);
+    And(a = instruction[15], b = instruction[4], out = loadD);
+
+    // ALU に必要な Mux16
+    Mux16(a = outA, b = inM, sel = instruction[12], out = outAM);
+
+    // ALU の出力が in になる Mux16
+    Mux16(a = instruction, b = inAM, sel = instruction[15], out = preA);
+
+    // ↑の Mux16 を in とする A register と、それの in になるやつ
+    ARegister(in = preA, load = loadA, out = outA, out[0..14] = addressM);
+    Not(in = instruction[15], out = aInstruct);
+    Or(a = aInstruct, b = instruction[5], out = loadA);
+
+    // writeM
+    And(a = true, b = instruction[3], out = preWriteM);
+    And(a = instruction[15], b = preWriteM, out = writeM);
+
+    // PC(j)
+    And(a = instruction[2], b = outNg, out = outJ1);
+    And(a = instruction[1], b = outZr, out = outJ2);
+    Not(in = outZr, out = nOutZr);
+    Not(in = outNg, out = nOutNg);
+    And(a = nOutZr, b = nOutNg, out = outGz);
+    And(a = instruction[0], b = outGz, out = outJ3);
+    Or(a = outJ1, b = outJ2, out = outJ12);
+    Or(a = outJ12, b = outJ3, out = outJ);
+    And(a = instruction[15], b = outJ, out = setLoad);
+    PC(in = outA, load = setLoad, inc = true, reset = reset,
+       out[0..14] = pc);
 }
